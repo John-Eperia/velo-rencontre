@@ -1,6 +1,18 @@
 version: "3.3"
 
 services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: velo-api
+    container_name: container-velo-api
+    ports:
+      - "5003:5003"
+    env_file:
+     - ./api/.env
+    networks:
+      - velo-network
   map:
     build:
       context: ./map
